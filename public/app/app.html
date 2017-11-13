@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userApp">
+
+<head>
+    <title></title>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+ <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+ <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+ <link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
+ 
+    <script src="assets/js/angular.js"></script>
+    <!-- <script src="assets/js/angular-route.js"></script> -->
+    <script src="angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    
+    <script src="app/controllers/user.controller.js"></script>
+    <script src="app/controllers/email.controller.js"></script>
+    <script src="app/controllers/auth.controller.js"></script>
+    <script src="app/controllers/management.controller.js"></script>
+
+    
+    <script src="app/services/user.service.js"></script>
+    <script src="app/services/auth.service.js"></script>
+     <script src="app/services/management.service.js"></script>
+
+ </head>
+<body ng-controller="mainCtrl as main">
+
+  	<nav class="navbar navbar-default navbar-expand flex-column flex-md-row bd-navbar navbar-fixed-top">
+  		<div class="container">
+  			<div class="navbar-header">
+			    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
+			    </button>
+			    <a class="navbar-brand" href="/">MEAN Auth with Social and User Crud</a>
+			    <ul class="nav navbar-nav">
+					<li><a class="page-scroll" ui-sref="home">Home</a>
+					<li><a class="page-scroll" ui-sref="about">About</a>
+				</ul>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		    	<ul class="nav navbar-nav navbar-right">
+			        <li><a ng-show="!main.isLoggedIn" ui-sref="signin">SIGN IN </a></li>
+			        <li><a ng-show="!main.isLoggedIn"  ui-sref="signup">SIGN UP</a></li>
+			        <li class="dropdown" ng-show="main.isLoggedIn" >
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{main.username}} <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+                         <li><a ui-sref="profile" >Profile</a></li>
+			            <li><a href="javascript:void(0)" ng-click="main.logout();">LOGOUT</a></li>
+			          <!--   <li><a href="#">Another action</a></li>
+			            <li><a href="#">Something else here</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">Separated link</a></li> -->
+			          </ul>
+			        </li>
+			    </ul>
+		    </div>
+    		
+    			
+    	</div>
+  	</nav>
+
+
+        <div class="container">
+            <div class="row">
+
+                <!-- Angular View -->
+                <div ui-view></div>
+                <!-- Angular View -->
+
+            </div>
+        </div>
+       
+    
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+
+    <!-- <script src="assets/js/angular.min.js"></script> -->
+<!-- <script src="angular/angular.js"></script>
+ <script src="angular-ui-router/release/angular-ui-router.js"></script>
+ <script type="text/javascript" src="ng-file-upload/dist/ng-file-upload.min.js"></script>
+<script type="text/javascript" src="ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+ <script src="app.js"></script>
+ <script src="services/service.js"></script>
+ <script src="controllers/user.controller.js"></script> -->
+</html>
